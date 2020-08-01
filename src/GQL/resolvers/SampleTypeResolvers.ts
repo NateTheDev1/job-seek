@@ -1,6 +1,7 @@
 const sampleTypeResolvers = {
   Query: {
     hello: () => "hello",
+    cats: () => [{ id: 0, name: "Nate", type: "Cat" }],
   },
 
   Mutation: {

@@ -3,6 +3,7 @@ import { gql } from "apollo-server-express";
 const SampleType = gql`
   type Query {
     hello: String!
+    cats: [Cat!]!
   }
 
   type Cat {
