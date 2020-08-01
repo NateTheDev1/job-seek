@@ -1,0 +1,37 @@
+{
+  "name": "job-seek",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "server": "nodemon src/index.ts",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NateTheDev1/job-seek.git"
+  },
+  "author": "Nathaniel Richards <nathaniel-richards@lambdastudents.com> (https://nathanielrichards.dev)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NateTheDev1/job-seek/issues"
+  },
+  "homepage": "https://github.com/NateTheDev1/job-seek#readme",
+  "dependencies": {
+    "better-logging": "^4.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.7",
+    "@types/express": "^4.17.7",
+    "@types/helmet": "^0.0.47",
+    "@types/node": "^14.0.27",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
