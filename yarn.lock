@@ -962,6 +962,11 @@ keyv@^3.0.0:
   dependencies:
     json-buffer "3.0.0"
 
+knex-db-access@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/knex-db-access/-/knex-db-access-1.0.1.tgz#3bf65b66013bc76e719a722bdfa9d40001546a44"
+  integrity sha512-OqaAzYd6tcUaApCvY0llJAd7ZfJoy9bqDFG8QyztXy0BeZMZ/Z0YvmC9lJxMyUgCVT3HPtW8eI0bLBTjGoqKmA==
+
 latest-version@^5.0.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/latest-version/-/latest-version-5.1.0.tgz#119dfe908fe38d15dfa43ecd13fa12ec8832face"
