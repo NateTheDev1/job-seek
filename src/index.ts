@@ -11,6 +11,10 @@ import server from "./server/server";
 server.use(helmet());
 server.use(cors());
 
+//APOLLO
+import { server as GQLServer } from "./GQL";
+GQLServer.applyMiddleware({ app: server });
+
 // LISTENING
 import chalk from "chalk";
 require("better-logging")(console, {
@@ -19,5 +23,5 @@ require("better-logging")(console, {
 });
 
 server.listen(PORT, () => {
-  console.info(`Server is running in ${ENV} on port ${PORT}`);
+  console.info(`🚀 Server is running in ${ENV} on port ${PORT}`);
 });

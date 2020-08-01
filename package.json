@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/NateTheDev1/job-seek#readme",
   "dependencies": {
+    "apollo-server-express": "^2.16.1",
     "better-logging": "^4.4.0",
     "chalk": "^4.1.0",
     "cors": "^2.8.5",
