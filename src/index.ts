@@ -12,7 +12,12 @@ server.use(helmet());
 server.use(cors());
 
 // LISTENING
-require("better-logging")(console);
+import chalk from "chalk";
+require("better-logging")(console, {
+  format: (ctx: any) =>
+    ` ${ctx.STAMP("SERVER MESSAGE", chalk.blue)} ${ctx.msg}`,
+});
+
 server.listen(PORT, () => {
   console.info(`Server is running in ${ENV} on port ${PORT}`);
 });

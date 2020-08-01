@@ -1,11 +1,11 @@
 // SERVER
-import express from "express";
-const server: express.Application = express();
+import express, { Application, Request, Response } from "express";
+const server: Application = express();
 
 server.use(express.json());
 
 // INDEX ROUTE
-server.get("/", (req, res) => {
+server.get("/", (req: Request, res: Response) => {
   res.json({ api: "ONLINE" });
 });
 
