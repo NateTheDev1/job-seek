@@ -1,28 +1,25 @@
-import {
-  ApolloServer,
-  ApolloError,
-  AuthenticationError,
-} from "apollo-server-express";
-import { typeDefs as Queries } from "./typeDefs/Defs";
-import resolvers from "./resolvers/resolvers";
+import { ApolloServer, AuthenticationError } from "apollo-server-express";
+import typeDefs from "./typeDefs";
+import resolvers from "./resolvers";
+
 const jwt = require("jsonwebtoken");
 
 export const server = new ApolloServer({
-  typeDefs: Queries,
+  typeDefs,
   resolvers,
-  context: async ({ req, res }) => {
-    const token = req.headers.authorization || "";
-    if (token.length < 1) {
-      throw new AuthenticationError("No Token Present");
-    } else {
-      const secret = process.env.JWT_SECRET;
-      const decoded = await jwt.verify(token, secret);
+  // context: async ({ req }) => {
+  //   const token = req.headers.authorization || "";
+  //   if (token.length < 1) {
+  //     throw new AuthenticationError("No Token Present");
+  //   } else {
+  //     const secret = process.env.JWT_SECRET;
+  //     const decoded = await jwt.verify(token, secret);
 
-      if (!decoded) {
-        throw new AuthenticationError("Invalid Token");
-      }
-    }
+  //     if (!decoded) {
+  //       throw new AuthenticationError("Invalid Token");
+  //     }
+  //   }
 
-    return {};
-  },
+  //   return {};
+  // },
 });

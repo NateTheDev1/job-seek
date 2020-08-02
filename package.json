@@ -20,12 +20,14 @@
   "homepage": "https://github.com/NateTheDev1/job-seek#readme",
   "dependencies": {
     "apollo-server-express": "^2.16.1",
+    "bcryptjs": "^2.4.3",
     "better-logging": "^4.4.0",
     "chalk": "^4.1.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.23.3",
+    "jsonwebtoken": "^8.5.1",
     "knex-db-access": "^1.0.1"
   },
   "devDependencies": {

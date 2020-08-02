@@ -12,7 +12,7 @@ export async function up(knex: Knex): Promise<void> {
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
     tbl.string("notes", 350).notNullable();
-    tbl.timestamps(true, true);
+    tbl.string("createdAt").defaultTo(new Date());
     tbl.string("status").notNullable();
     tbl.string("url").notNullable();
   });
