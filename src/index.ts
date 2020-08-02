@@ -12,7 +12,7 @@ server.use(helmet());
 server.use(cors());
 
 //APOLLO
-import { server as GQLServer } from "./GQL";
+import { server as GQLServer } from "./gql";
 GQLServer.applyMiddleware({ app: server });
 
 // LISTENING
