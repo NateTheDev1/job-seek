@@ -1,8 +1,10 @@
 import { ApolloError } from "apollo-server-express";
-
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const connection = require("../database/dbConfig");
 const dbAccess = require("knex-db-access");
 const userdb = new dbAccess(connection, "users");
+require("dotenv").config();
 
 const resolvers = {
   Query: {
@@ -24,10 +26,26 @@ const resolvers = {
         password,
       }: { name: String; username: String; password: String }
     ) => {
-      await userdb.create({ username, password, name });
+      const salt = await bcrypt.genSaltSync(10);
+      const hash = await bcrypt.hashSync(password, salt);
 
-      const user = userdb.findBy({ username });
-      return user;
+      await userdb.create({ username, password: hash, name });
+
+      const user = await userdb.findBy({ username });
+
+      const payload = {
+        id: user.id,
+      };
+
+      const options = {
+        expiresIn: "1h",
+      };
+
+      const secret = process.env.JWT_SECRET;
+
+      const token = await jwt.sign(payload, secret, options);
+
+      return { ...user, token };
     },
   },
 };

@@ -12,6 +12,7 @@ const typeDefs = gql`
     username: String
     password: String
     createdAt: String
+    token: String
   }
 
   type Mutation {
