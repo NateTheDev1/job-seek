@@ -6,15 +6,13 @@ const userdb = new dbAccess(connection, "users");
 
 const resolvers = {
   Query: {
-    user: (_: any, { id }: { id: String }) => {
-      userdb
-        .findBy({ id })
-        .then((user: Object) => {
-          return user;
-        })
-        .catch((err: Object) => {
-          return "User Not Found";
-        });
+    user: async (_: any, { id }: { id: String }) => {
+      const user = await userdb.findBy({ id: id });
+      return user;
+    },
+    users: async (__: any, _: any) => {
+      const users = await userdb.find();
+      return users;
     },
   },
   Mutation: {
